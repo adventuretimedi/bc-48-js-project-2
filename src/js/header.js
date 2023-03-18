@@ -5,6 +5,8 @@ import { markupNotRequest } from './markup-bad-request';
 import { localFavorites } from './localfavorites';
 import { galleryMarkUp } from './markup';
 import { ingredientsMarkup } from './ingredientmarkup';
+import { showFavoriteIngredients } from './favoriteingredients';
+
 
 const paginationEl = document.querySelector('.pagination');
 const mobileMenuOpen = document.querySelector('.header__burger-menu');
@@ -26,6 +28,8 @@ const galleryTitle = document.querySelector('.gallerry__title-main-wrepper')
 const sectionCockt = document.querySelector('.favorite-cocktails')
 const ingredientsList = document.querySelector('.ingredients__list');
 const notFoundTextIngredientsList = document.querySelector('.ingredients__text');
+const ingredientsTitle = document.querySelector('.ingredients__title');
+
 
 
 const fetchCocktails = new FetchCocktails();
@@ -142,19 +146,24 @@ function searchFavoriteCockt(event) {
 }
 
 function searchFavoriteIng(event) { 
-
-    
     const data = localFavorites.getLocal("favingr");
-    
-
-    console.log('улюблені шнградієнти з локал сторедж', data)
-    const resultSearch = data.filter(el => {
-            
+    const resultSearch = data.filter(el => {    
             return el.strIngredient.toLowerCase().includes(event.target.name.value.toLowerCase())
-        })
+    })
+   
+    if (resultSearch.length === 0) {
+        
+        ingredientsTitle.textContent = 'Sorry, we didn\'t find any cocktail for you';
+
+        
+        ingredientsList.innerHTML = markupNotRequest();
+    } else {
+        ingredientsTitle.textContent = 'Favorite ingredients';
+        console.log(resultSearch)
+        showFavoriteIngredients(resultSearch);
+    }
     
-   console.log(resultSearch)
-    // renderPagination(resultSearch);
+  
     event.target.name.value = '';
 }
 
