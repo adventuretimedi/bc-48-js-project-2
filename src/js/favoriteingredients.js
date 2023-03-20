@@ -3,6 +3,7 @@ import { localFavorites } from './localfavorites';
 import { header } from './header';
 import { modalingredients, showIngredientDetails } from './modalingredients';
 import { ingredientsMarkup } from './ingredientmarkup';
+import './auth'
 
 const refs = {
   list: document.querySelector('.ingredients__list'),
