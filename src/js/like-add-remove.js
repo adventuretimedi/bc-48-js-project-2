@@ -36,6 +36,15 @@ export function addLikeClick(drinks) {
           };
       };
     });
+
+    document.querySelectorAll('.gallery__figcaption--storage').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+      el.lastElementChild.style.fill = '#fd5103';
+      })
+      el.addEventListener('mouseleave', () => {
+      el.lastElementChild.style.fill = 'var(--white-modal-text)';
+    })
+    })
   });
 }
 
