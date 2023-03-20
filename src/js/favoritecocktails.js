@@ -4,6 +4,8 @@ import { header } from './header';
 import { modalcocktails } from './modalcocktails';
 import { modalingredients } from './modalingredients';
 import { renderPagination } from './pagination-show'
+import './auth'
+
 
 const favCoctNothing = document.querySelector('.favorite-cocktails__text');
 
