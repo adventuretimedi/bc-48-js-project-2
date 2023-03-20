@@ -6,7 +6,6 @@ import { gallery } from './gallery'
 import { modalcocktails } from './modalcocktails';
 import { modalingredients } from './modalingredients';
 import { renderPagination } from './pagination-show'
-import './auth'
 
 
 
